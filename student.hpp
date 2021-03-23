@@ -34,6 +34,12 @@ class Student {
         bool removeCourse(std::string courseId);
         // Remove course at given index from vector.
         void removeCourse(int index);
+
+        bool operator<(const Student& other) const;
+        bool operator>(const Student& other) const;
+        bool operator==(const Student& other) const;
+        bool operator<=(const Student& other) const;
+        bool operator>=(const Student& other) const;
 };
 
 #endif

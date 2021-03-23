@@ -63,3 +63,34 @@ bool Student::removeCourse(std::string courseId) {
 void Student::removeCourse(int index) {
     coursesTaken_.erase(std::find(coursesTaken_.begin(), coursesTaken_.end(), coursesTaken_[index]));
 }
+
+bool Student::operator<(const Student& other) const {
+    if(surname_ == other.surname_)
+        return givenName_.compare(other.givenName_) < 0;
+
+    return surname_.compare(other.surname_) < 0;
+}
+bool Student::operator>(const Student& other) const {
+    if(surname_ == other.surname_)
+        return givenName_.compare(other.givenName_) > 0;
+
+    return surname_.compare(other.surname_) > 0;
+}
+bool Student::operator==(const Student& other) const {
+    if(surname_ == other.surname_)
+        return givenName_ == other.givenName_;
+
+    return surname_ == other.surname_;
+}
+bool Student::operator<=(const Student& other) const{ 
+    if(surname_ == other.surname_)
+        return givenName_.compare(other.givenName_) <= 0;
+
+    return surname_.compare(other.surname_) <= 0;
+}
+bool Student::operator>=(const Student& other) const {
+    if(surname_ == other.surname_)
+        return givenName_.compare(other.givenName_) >= 0;
+
+    return surname_.compare(other.surname_) >= 0;
+}
