@@ -14,7 +14,7 @@ class LinkedList {
     private:
         ListNode* head_;
         ListNode* tail_;
-        int size;
+        int size_;
     public:
         LinkedList();
         // LinkedList(ListNode head);
