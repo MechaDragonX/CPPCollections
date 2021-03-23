@@ -63,6 +63,20 @@ bool Student::removeCourse(std::string courseId) {
 void Student::removeCourse(int index) {
     coursesTaken_.erase(std::find(coursesTaken_.begin(), coursesTaken_.end(), coursesTaken_[index]));
 }
+std::string Student::toString(bool full) {
+    if(full) {
+        std::string output = surname_ + ", " + givenName_ + "\n";
+        output += "{ ";
+        for(int i = 0; i < coursesTaken_.size(); i++) {
+            if(i != coursesTaken_.size() - 1)
+                output += coursesTaken_[i] + ", ";
+            else
+                output += coursesTaken_[i];
+        }
+        return output + " }";
+    }
+    return "[" + surname_ + ", " + givenName_ + "]";
+}
 
 bool Student::operator<(const Student& other) const {
     if(surname_ == other.surname_)

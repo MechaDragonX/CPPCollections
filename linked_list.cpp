@@ -52,3 +52,14 @@ Student LinkedList::remove(Student value) {
     }
     return Student();
 }
+std::string LinkedList::toString() {
+    ListNode* current = head_;
+    std::string output = "";
+    while(current != nullptr) {
+        if(current->next != nullptr)
+            output += current->value.toString(false) + " => ";
+        else
+            output += current->value.toString(false);
+    }
+    return output;
+}
