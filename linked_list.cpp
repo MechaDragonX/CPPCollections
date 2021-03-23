@@ -18,11 +18,15 @@ void LinkedList::add(Student value) {
         // tail = nullptr in this case
     else
         tail_ = new ListNode{ value, tail_, nullptr };
+
+    size_++;
 }
 Student LinkedList::remove() {
     ListNode* oldTail = tail_;
     tail_ = tail_->previous;
     tail_->next = nullptr;
+    size_--;
+
     return oldTail->value;
     delete oldTail;
 }
@@ -37,6 +41,8 @@ Student LinkedList::remove(Student value) {
             current->previous->next = current->next;
             // 1 <=  3
             current->next->previous = current->previous;
+            size_--;
+
             // Return the value
             return current->value;
             // Delete the removed node
