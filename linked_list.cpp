@@ -22,8 +22,15 @@ void LinkedList::add(Student value) {
     if(head_ == nullptr)
         head_ = new ListNode{ value, nullptr, tail_ };
         // tail = nullptr in this case
-    else
-        tail_ = new ListNode{ value, tail_, nullptr };
+    else if(size_ == 1) {
+        tail_ = new ListNode{ value, head_, nullptr };
+        head_->next = tail_;
+    }
+    else {
+        ListNode* neo = new ListNode{ value, tail_, nullptr };
+        tail_->next = neo;
+        tail_ = neo;
+    }
 
     size_++;
 }
@@ -66,6 +73,8 @@ std::string LinkedList::toString() {
             output += current->value.toString(false) + " => ";
         else
             output += current->value.toString(false);
+
+        current = current->next;
     }
     return output;
 }

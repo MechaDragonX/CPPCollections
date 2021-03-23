@@ -75,6 +75,7 @@ std::string Student::toString(bool full) {
         }
         return output + " }";
     }
+
     return "[" + surname_ + ", " + givenName_ + "]";
 }
 
