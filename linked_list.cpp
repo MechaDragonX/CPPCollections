@@ -8,6 +8,12 @@ LinkedList::LinkedList() {
     size_ = 0;
 }
 
+ListNode* LinkedList::getHead() {
+    return head_;
+}
+ListNode* LinkedList::getTail() {
+    return tail_;
+}
 int LinkedList::getSize() {
     return size_;
 }

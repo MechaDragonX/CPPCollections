@@ -21,6 +21,8 @@ class LinkedList {
         // LinkedList(Student value);
         // ~LinkedList();
 
+        ListNode* getHead();
+        ListNode* getTail();
         int getSize();
 
         void add(Student value);
