@@ -30,8 +30,7 @@ int main() {
     knob.addCourse("end");
     std::cout << knob.toString(true) << std::endl;
 
-    LinkedList list = LinkedList();
-    list.add(rags);
+    LinkedList list = LinkedList(rags);
     list.add(syke1);
     list.add(syke2);
     list.add(surnameLacking);

@@ -17,8 +17,7 @@ class LinkedList {
         int size_;
     public:
         LinkedList();
-        // LinkedList(ListNode head);
-        // LinkedList(Student value);
+        LinkedList(Student value);
         // ~LinkedList();
 
         ListNode* getHead();

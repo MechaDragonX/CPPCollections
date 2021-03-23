@@ -7,6 +7,11 @@ LinkedList::LinkedList() {
     tail_ = nullptr;
     size_ = 0;
 }
+LinkedList::LinkedList(Student value) {
+    tail_ = nullptr;
+    head_ = new ListNode{ value, nullptr, tail_ };
+    size_ = 1;
+}
 
 ListNode* LinkedList::getHead() {
     return head_;
