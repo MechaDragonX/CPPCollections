@@ -6,8 +6,8 @@
 
 struct ListNode {
     Student value;
-    ListNode* back;
-    ListNode* front;
+    ListNode* previous;
+    ListNode* next;
 };
 
 class LinkedList {
@@ -18,13 +18,14 @@ class LinkedList {
     public:
         LinkedList();
         // LinkedList(ListNode head);
-        // LinkedList(Student element);
-        ~LinkedList();
+        // LinkedList(Student value);
+        // ~LinkedList();
 
         int getSize();
 
-        void add(Student element);
+        void add(Student value);
         Student remove();
+        Student remove(Student value);
         std::string toString();
 };
 
