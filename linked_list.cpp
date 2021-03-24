@@ -23,6 +23,16 @@ int LinkedList::getSize() {
     return size_;
 }
 
+bool LinkedList::exists(Student value) {
+    ListNode* current = head_;
+    while(current != nullptr) {
+        if(current->value == value)
+            return true;
+
+        current = current->next;
+    }
+    return false;
+}
 void LinkedList::add(Student value) {
     if(head_ == nullptr)
         head_ = new ListNode{ value, nullptr, tail_ };
@@ -39,16 +49,15 @@ void LinkedList::add(Student value) {
 
     size_++;
 }
-Student LinkedList::remove() {
+void LinkedList::remove() {
     ListNode* oldTail = tail_;
     tail_ = tail_->previous;
     tail_->next = nullptr;
     size_--;
 
-    return oldTail->value;
     delete oldTail;
 }
-Student LinkedList::remove(Student value) {
+void LinkedList::remove(Student value) {
     ListNode* current = head_;
     // ListNode* previous = nullptr;
     // ListNode* next = nullptr;
@@ -61,14 +70,11 @@ Student LinkedList::remove(Student value) {
             current->next->previous = current->previous;
             size_--;
 
-            // Return the value
-            return current->value;
             // Delete the removed node
             delete current;
         }
         current = current->next;
     }
-    return Student();
 }
 std::string LinkedList::toString() {
     ListNode* current = head_;

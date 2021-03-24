@@ -27,7 +27,7 @@ int main() {
 
     Student knob("Jake", "Knabner");
     knob.addCourse("cs");
-    knob.addCourse("end");
+    knob.addCourse("eng");
     std::cout << knob.toString(true) << std::endl;
 
     LinkedList list = LinkedList(rags);
@@ -40,4 +40,18 @@ int main() {
     std::cout << list.toString() << std::endl;
     list.remove(syke2);
     std::cout << list.toString() << std::endl;
+
+    std::cout << "Is Mason Sykes alive? ";
+    bool alive = list.exists(syke2);
+    if(alive)
+        std::cout << "Yes" << std::endl;
+    else
+        std::cout << "No" << std::endl;
+
+    std::cout << "Is the character that didn't have a last name until today (Ashley) alive? ";
+    alive = list.exists(surnameLacking);
+    if(alive)
+        std::cout << "Yes" << std::endl;
+    else
+        std::cout << "No" << std::endl;
 }

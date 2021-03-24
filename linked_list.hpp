@@ -24,9 +24,10 @@ class LinkedList {
         ListNode* getTail();
         int getSize();
 
+        bool exists(Student value);
         void add(Student value);
-        Student remove();
-        Student remove(Student value);
+        void remove();
+        void remove(Student value);
         std::string toString();
 };
 
