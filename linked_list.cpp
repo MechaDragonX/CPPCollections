@@ -38,12 +38,17 @@ void LinkedList::add(Student value) {
         head_ = new ListNode{ value, nullptr, tail_ };
         // tail = nullptr in this case
     else if(size_ == 1) {
+        // Set tail to new value
         tail_ = new ListNode{ value, head_, nullptr };
+        // Make head => tail (forward link)
         head_->next = tail_;
     }
     else {
+        // Make a new node with the passed value that is backward linked to tail and forward linked to nullptr
         ListNode* neo = new ListNode{ value, tail_, nullptr };
+        // Make tail => neo
         tail_->next = neo;
+        // Make neo the new tail
         tail_ = neo;
     }
 
@@ -51,22 +56,23 @@ void LinkedList::add(Student value) {
 }
 void LinkedList::remove() {
     ListNode* oldTail = tail_;
+    // Make tail the previous value
     tail_ = tail_->previous;
+    // Forward link it to nullptr
     tail_->next = nullptr;
+    // decrement size
     size_--;
 
     delete oldTail;
 }
 void LinkedList::remove(Student value) {
     ListNode* current = head_;
-    // ListNode* previous = nullptr;
-    // ListNode* next = nullptr;
     while(current != nullptr) {
         if(current->value == value) {
             // If there is are values 1, 2, 3 that are linked to each other,
             // 1 => 3
             current->previous->next = current->next;
-            // 1 <=  3
+            // 1 <=  3 (backward link)
             current->next->previous = current->previous;
             size_--;
 

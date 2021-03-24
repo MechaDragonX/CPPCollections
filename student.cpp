@@ -7,22 +7,22 @@
 
 Student::Student() {
     // Initialize RNG with current time as seed
-    srand(time(nullptr));
+    // srand(time(nullptr));
 
-    id_ = rand() % 10000 + 1;
+    // id_ = rand() % 10000 + 1;
     givenName_ = "";
     surname_ = "";
     coursesTaken_ = {};
 }
 Student::Student(std::string givenName, std::string surname) : givenName_(givenName), surname_(surname) {
     // Initialize RNG with current time as seed
-    srand(time(nullptr));
-    id_ = rand() % 10000 + 1;
+    // srand(time(nullptr));
+    // id_ = rand() % 10000 + 1;
 }
 
-int Student::getId() {
-    return id_;
-}
+// int Student::getId() {
+//     return id_;
+// }
 std::string Student::getGivenName() {
     return givenName_;
 }

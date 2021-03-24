@@ -6,7 +6,7 @@
 
 class Student {
     private:
-        int id_;
+        // int id_;
         std::string givenName_;
         std::string surname_;
         std::vector<std::string> coursesTaken_;
@@ -14,7 +14,7 @@ class Student {
         Student();
         Student(std::string givenName, std::string surname);
 
-        int getId();
+        // int getId();
         std::string getGivenName();
         std::string getSurname();
         std::vector<std::string> getCoursesTaken();
