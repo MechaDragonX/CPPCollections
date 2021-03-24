@@ -40,6 +40,8 @@ int main() {
     std::cout << list.toString() << std::endl;
     list.remove(syke2);
     std::cout << list.toString() << std::endl;
+    list.remove(rags);
+    std::cout << list.toString() << std::endl;
 
     std::cout << "Is Mason Sykes alive? ";
     bool alive = list.exists(syke2);

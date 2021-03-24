@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include "linked_list.hpp"
 #include "student.hpp"
@@ -66,6 +67,15 @@ void LinkedList::remove() {
     delete oldTail;
 }
 void LinkedList::remove(Student value) {
+    if(head_->value == value) {
+        ListNode* oldHead = head_;
+        head_ = head_->next;
+        head_->previous = nullptr;
+        delete oldHead;
+        size_--;
+        return;
+    }
+
     ListNode* current = head_;
     while(current != nullptr) {
         if(current->value == value) {
@@ -74,10 +84,10 @@ void LinkedList::remove(Student value) {
             current->previous->next = current->next;
             // 1 <=  3 (backward link)
             current->next->previous = current->previous;
-            size_--;
 
             // Delete the removed node
             delete current;
+            size_--;
         }
         current = current->next;
     }
