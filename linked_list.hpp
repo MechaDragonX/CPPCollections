@@ -2,32 +2,33 @@
 #define LINKED_LIST_HPP
 
 #include <string>
-#include "student.hpp"
 
+template <typename T>
 struct ListNode {
-    Student value;
-    ListNode* previous;
-    ListNode* next;
+    T value;
+    ListNode<T>* previous;
+    ListNode<T>* next;
 };
 
+template <typename T>
 class LinkedList {
     private:
-        ListNode* head_;
-        ListNode* tail_;
+        ListNode<T>* head_;
+        ListNode<T>* tail_;
         int size_;
     public:
         LinkedList();
-        LinkedList(Student value);
+        LinkedList(T value);
         // ~LinkedList();
 
-        ListNode* getHead();
-        ListNode* getTail();
+        ListNode<T>* getHead();
+        ListNode<T>* getTail();
         int getSize();
 
-        bool exists(Student value);
-        void add(Student value);
+        bool exists(T value);
+        void add(T value);
         void remove();
-        void remove(Student value);
+        void remove(T value);
         std::string toString();
 };
 
