@@ -63,7 +63,7 @@ bool Student::removeCourse(std::string courseId) {
 void Student::removeCourse(int index) {
     coursesTaken_.erase(std::find(coursesTaken_.begin(), coursesTaken_.end(), coursesTaken_[index]));
 }
-std::string Student::toString(bool full) {
+std::string Student::toString(bool full = false) {
     if(full) {
         std::string output = surname_ + ", " + givenName_ + "\n";
         output += "{ ";

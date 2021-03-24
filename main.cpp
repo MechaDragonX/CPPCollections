@@ -30,7 +30,7 @@ int main() {
     knob.addCourse("eng");
     std::cout << knob.toString(true) << std::endl;
 
-    LinkedList list = LinkedList(rags);
+    LinkedList<Student> list = LinkedList<Student>(rags);
     list.add(syke1);
     list.add(syke2);
     list.add(surnameLacking);
@@ -56,4 +56,10 @@ int main() {
         std::cout << "Yes" << std::endl;
     else
         std::cout << "No" << std::endl;
+
+    // list.~LinkedList();
+    // if(list.toString() == "")
+    //     std::cout << "All values and deleted and memory deallocated successfully!" << std::endl;
+    // else
+    //     std::cout << "Oh no! Something bad happened! This could be a memory leak....." << std::endl;
 }
