@@ -1,7 +1,39 @@
 #include <iostream>
 #include <string>
 #include "double_linked_list.hpp"
+#include "linked_list.hpp"
 #include "student.hpp"
+
+DoubleLinkedList<Student> doubleLinkedListStuff(Student rags, Student syke1, Student syke2, Student surnameLacking, Student knob) {
+    DoubleLinkedList<Student> list = DoubleLinkedList<Student>(rags);
+    list.add(syke1);
+    list.add(syke2);
+    list.add(surnameLacking);
+    list.add(knob);
+    std::cout << list.toString() << std::endl;
+    list.remove();
+    std::cout << list.toString() << std::endl;
+    list.remove(syke2);
+    std::cout << list.toString() << std::endl;
+    list.remove(rags);
+    std::cout << list.toString() << std::endl;
+    return list;
+}
+LinkedList<Student> linkedListStuff(Student rags, Student syke1, Student syke2, Student surnameLacking, Student knob) {
+    LinkedList<Student> list = LinkedList<Student>(rags);
+    list.add(syke1);
+    list.add(syke2);
+    list.add(surnameLacking);
+    list.add(knob);
+    std::cout << list.toString() << std::endl;
+    list.remove();
+    std::cout << list.toString() << std::endl;
+    list.remove(syke2);
+    std::cout << list.toString() << std::endl;
+    list.remove(rags);
+    std::cout << list.toString() << std::endl;
+    return list;
+}
 
 int main() {
     Student rags("Raghav", "Vivek");
@@ -30,18 +62,8 @@ int main() {
     knob.addCourse("eng");
     std::cout << knob.toString(true) << std::endl;
 
-    DoubleLinkedList<Student> list = DoubleLinkedList<Student>(rags);
-    list.add(syke1);
-    list.add(syke2);
-    list.add(surnameLacking);
-    list.add(knob);
-    std::cout << list.toString() << std::endl;
-    list.remove();
-    std::cout << list.toString() << std::endl;
-    list.remove(syke2);
-    std::cout << list.toString() << std::endl;
-    list.remove(rags);
-    std::cout << list.toString() << std::endl;
+    // DoubleLinkedList<Student> list = doubleLinkedListStuff(rags, syke1, syke2, surnameLacking, knob);
+    LinkedList<Student> list = linkedListStuff(rags, syke1, syke2, surnameLacking, knob);
 
     std::cout << "Is Mason Sykes alive? ";
     bool alive = list.exists(syke2);
