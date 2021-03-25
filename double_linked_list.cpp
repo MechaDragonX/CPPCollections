@@ -1,25 +1,25 @@
 #include <iostream>
 #include <string>
 #include <type_traits>
-#include "linked_list.hpp"
+#include "double_linked_list.hpp"
 #include "student.hpp"
 
 template <typename T>
-LinkedList<T>::LinkedList() {
+DoubleLinkedList<T>::DoubleLinkedList() {
     head_ = nullptr;
     tail_ = nullptr;
     size_ = 0;
 }
 template <typename T>
-LinkedList<T>::LinkedList(T value) {
+DoubleLinkedList<T>::DoubleLinkedList(T value) {
     tail_ = nullptr;
-    head_ = new ListNode<T>{ value, nullptr, tail_ };
+    head_ = new DoubleListNode<T>{ value, nullptr, tail_ };
     size_ = 1;
 }
 // template <typename T>
-// LinkedList<T>::~LinkedList() {
-//     ListNode* current = tail_;
-//     ListNode* toDelete = nullptr;
+// DoubleLinkedList<T>::~DoubleLinkedList() {
+//     DoubleListNode* current = tail_;
+//     DoubleListNode* toDelete = nullptr;
 //     while(current->previous != nullptr) {
 //         std::cout << current->value.toString(false) + ", ";
 //         current = current->previous;
@@ -33,21 +33,21 @@ LinkedList<T>::LinkedList(T value) {
 // }
 
 template <typename T>
-ListNode<T>* LinkedList<T>::getHead() {
+DoubleListNode<T>* DoubleLinkedList<T>::getHead() {
     return head_;
 }
 template <typename T>
-ListNode<T>* LinkedList<T>::getTail() {
+DoubleListNode<T>* DoubleLinkedList<T>::getTail() {
     return tail_;
 }
 template <typename T>
-int LinkedList<T>::getSize() {
+int DoubleLinkedList<T>::getSize() {
     return size_;
 }
 
 template <typename T>
-bool LinkedList<T>::exists(T value) {
-    ListNode<T>* current = head_;
+bool DoubleLinkedList<T>::exists(T value) {
+    DoubleListNode<T>* current = head_;
     while(current != nullptr) {
         if(current->value == value)
             return true;
@@ -57,19 +57,19 @@ bool LinkedList<T>::exists(T value) {
     return false;
 }
 template <typename T>
-void LinkedList<T>::add(T value) {
+void DoubleLinkedList<T>::add(T value) {
     if(head_ == nullptr)
-        head_ = new ListNode<T>{ value, nullptr, tail_ };
+        head_ = new DoubleListNode<T>{ value, nullptr, tail_ };
         // tail = nullptr in this case
     else if(size_ == 1) {
         // Set tail to new value
-        tail_ = new ListNode<T>{ value, head_, nullptr };
+        tail_ = new DoubleListNode<T>{ value, head_, nullptr };
         // Make head => tail (forward link)
         head_->next = tail_;
     }
     else {
         // Make a new node with the passed value that is backward linked to tail and forward linked to nullptr
-        ListNode<T>* neo = new ListNode<T>{ value, tail_, nullptr };
+        DoubleListNode<T>* neo = new DoubleListNode<T>{ value, tail_, nullptr };
         // Make tail => neo
         tail_->next = neo;
         // Make neo the new tail
@@ -79,8 +79,8 @@ void LinkedList<T>::add(T value) {
     size_++;
 }
 template <typename T>
-void LinkedList<T>::remove() {
-    ListNode<T>* oldTail = tail_;
+void DoubleLinkedList<T>::remove() {
+    DoubleListNode<T>* oldTail = tail_;
     // Make tail the previous value
     tail_ = tail_->previous;
     // Forward link it to nullptr
@@ -91,9 +91,9 @@ void LinkedList<T>::remove() {
     delete oldTail;
 }
 template <typename T>
-void LinkedList<T>::remove(T value) {
+void DoubleLinkedList<T>::remove(T value) {
     if(head_->value == value) {
-        ListNode<T>* oldHead = head_;
+        DoubleListNode<T>* oldHead = head_;
         head_ = head_->next;
         head_->previous = nullptr;
         delete oldHead;
@@ -101,7 +101,7 @@ void LinkedList<T>::remove(T value) {
         return;
     }
 
-    ListNode<T>* current = head_;
+    DoubleListNode<T>* current = head_;
     while(current != nullptr) {
         if(current->value == value) {
             // If there is are values 1, 2, 3 that are linked to each other,
@@ -118,8 +118,8 @@ void LinkedList<T>::remove(T value) {
     }
 }
 template <typename T>
-std::string LinkedList<T>::toString() {
-    ListNode<T>* current = head_;
+std::string DoubleLinkedList<T>::toString() {
+    DoubleListNode<T>* current = head_;
     std::string output = "";
     while(current != nullptr) {
         if(current->next != nullptr) {
@@ -151,11 +151,11 @@ std::string LinkedList<T>::toString() {
 }
 
 // Relevant Templates
-template class LinkedList<int>;
-template class LinkedList<char>;
-template class LinkedList<bool>;
-template class LinkedList<float>;
-template class LinkedList<double>;
-template class LinkedList<wchar_t>;
-template class LinkedList<std::string>;
-template class LinkedList<Student>;
+template class DoubleLinkedList<int>;
+template class DoubleLinkedList<char>;
+template class DoubleLinkedList<bool>;
+template class DoubleLinkedList<float>;
+template class DoubleLinkedList<double>;
+template class DoubleLinkedList<wchar_t>;
+template class DoubleLinkedList<std::string>;
+template class DoubleLinkedList<Student>;

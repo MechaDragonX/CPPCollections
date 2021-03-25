@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "linked_list.hpp"
+#include "double_linked_list.hpp"
 #include "student.hpp"
 
 int main() {
@@ -30,7 +30,7 @@ int main() {
     knob.addCourse("eng");
     std::cout << knob.toString(true) << std::endl;
 
-    LinkedList<Student> list = LinkedList<Student>(rags);
+    DoubleLinkedList<Student> list = DoubleLinkedList<Student>(rags);
     list.add(syke1);
     list.add(syke2);
     list.add(surnameLacking);
@@ -57,7 +57,7 @@ int main() {
     else
         std::cout << "No" << std::endl;
 
-    // list.~LinkedList();
+    // list.~DoubleLinkedList();
     // if(list.toString() == "")
     //     std::cout << "All values and deleted and memory deallocated successfully!" << std::endl;
     // else
