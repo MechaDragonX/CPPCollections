@@ -68,11 +68,12 @@ void LinkedList<T>::add(T value) {
 template <typename T>
 void LinkedList<T>::remove() {
     ListNode<T>* oldTail = tail_;
-    // Forward link it to nullptr
-    tail_->next = nullptr;
-    // decrement size
-    size_--;
+    ListNode<T>* previous = head_;
 
+    while(previous->next != tail_)
+        previous = previous->next;
+
+    previous->next = nullptr;
     delete oldTail;
 }
 template <typename T>
