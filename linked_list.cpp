@@ -121,8 +121,6 @@ template <typename T>
 std::string LinkedList<T>::toString() {
     ListNode<T>* current = head_;
     std::string output = "";
-    // Blank string to compare all types to see if the current type is a string
-    std::string comparer = "";
     while(current != nullptr) {
         if(current->next != nullptr) {
             // If type is Student
