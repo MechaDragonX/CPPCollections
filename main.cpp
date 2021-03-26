@@ -62,8 +62,8 @@ int main() {
     knob.addCourse("eng");
     std::cout << knob.toString(true) << std::endl;
 
-    // DoubleLinkedList<Student> list = doubleLinkedListStuff(rags, syke1, syke2, surnameLacking, knob);
-    LinkedList<Student> list = linkedListStuff(rags, syke1, syke2, surnameLacking, knob);
+    DoubleLinkedList<Student> list = doubleLinkedListStuff(rags, syke1, syke2, surnameLacking, knob);
+    // LinkedList<Student> list = linkedListStuff(rags, syke1, syke2, surnameLacking, knob);
 
     std::cout << "Is Mason Sykes alive? ";
     bool alive = list.exists(syke2);

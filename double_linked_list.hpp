@@ -2,6 +2,7 @@
 #define DOUBLE_LINKED_LIST_HPP
 
 #include <string>
+#include "i_link.hpp"
 
 template <typename T>
 struct DoubleListNode {
@@ -11,7 +12,7 @@ struct DoubleListNode {
 };
 
 template <typename T>
-class DoubleLinkedList {
+class DoubleLinkedList : public ILink<T> {
     private:
         DoubleListNode<T>* head_;
         DoubleListNode<T>* tail_;
@@ -25,10 +26,10 @@ class DoubleLinkedList {
         DoubleListNode<T>* getTail();
         int getSize();
 
-        bool exists(T value);
-        void add(T value);
-        void remove();
-        void remove(T value);
+        bool exists(T value) override;
+        void add(T value) override;
+        void remove() override;
+        void remove(T value) override;
         std::string toString();
 };
 

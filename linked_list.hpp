@@ -2,6 +2,7 @@
 #define LINKED_LIST_HPP
 
 #include <string>
+#include "i_link.hpp"
 
 template <typename T>
 struct ListNode {
@@ -10,7 +11,7 @@ struct ListNode {
 };
 
 template <typename T>
-class LinkedList {
+class LinkedList : public ILink<T> {
     private:
         ListNode<T>* head_;
         ListNode<T>* tail_;
@@ -24,11 +25,11 @@ class LinkedList {
         ListNode<T>* getTail();
         int getSize();
 
-        bool exists(T value);
-        void add(T value);
-        void remove();
-        void remove(T value);
-        std::string toString();
+        bool exists(T value) override;
+        void add(T value) override;
+        void remove() override;
+        void remove(T value) override;
+        std::string toString() override;
 };
 
 #endif

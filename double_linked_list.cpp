@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <type_traits>
+#include "i_link.hpp"
 #include "double_linked_list.hpp"
 #include "student.hpp"
 
