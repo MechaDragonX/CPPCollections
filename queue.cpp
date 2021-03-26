@@ -59,17 +59,13 @@ void Queue<T>::add(T value) {
 
     size_++;
 }
+// Remove from front
 template <typename T>
 void Queue<T>::remove() {
-    DoubleListNode<T>* oldTail = tail_;
-    // Make tail the previous value
-    tail_ = tail_->previous;
-    // Forward link it to nullptr
-    tail_->next = nullptr;
-    // decrement size
-    size_--;
-
-    delete oldTail;
+    DoubleListNode<T>* oldHead = head_;
+    // Make value after head point back to nullptr
+    head_->next->previous = nullptr;
+    delete oldHead;
 }
 template <typename T>
 std::string Queue<T>::toString() {
