@@ -66,6 +66,8 @@ void Queue<T>::remove() {
     // Make value after head point back to nullptr
     head_->next->previous = nullptr;
     delete oldHead;
+
+    size_--;
 }
 template <typename T>
 std::string Queue<T>::toString() {

@@ -77,6 +77,8 @@ void LinkedList<T>::remove() {
 
     previous->next = nullptr;
     delete oldTail;
+
+    size_--;
 }
 template <typename T>
 void LinkedList<T>::remove(T value) {

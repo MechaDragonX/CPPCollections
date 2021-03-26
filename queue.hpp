@@ -8,6 +8,7 @@
 template <typename T>
 class Queue : public ILink<T> {
     private:
+        // Double Nodes are used for faster pretty printing so the user thinks that the tails points tot he head
         DoubleListNode<T>* head_;
         DoubleListNode<T>* tail_;
         int size_;
