@@ -4,6 +4,7 @@
 #include "linked_list.hpp"
 #include "list_node.hpp"
 #include "queue.hpp"
+#include "stack.hpp"
 #include "student.hpp"
 
 DoubleLinkedList<Student> doubleLinkedListStuff(Student rags, Student syke1, Student syke2, Student surnameLacking, Student knob) {
@@ -47,6 +48,17 @@ Queue<Student> queueStuff(Student rags, Student syke1, Student syke2, Student su
     std::cout << queue.toString() << std::endl;
     return queue;
 }
+Stack<Student> stackStuff(Student rags, Student syke1, Student syke2, Student surnameLacking, Student knob) {
+    Stack<Student> stack = Stack<Student>(rags);
+    stack.add(syke1);
+    stack.add(syke2);
+    stack.add(surnameLacking);
+    stack.add(knob);
+    std::cout << stack.toString() << std::endl;
+    stack.remove();
+    std::cout << stack.toString() << std::endl;
+    return stack;
+}
 
 int main() {
     Student rags("Raghav", "Vivek");
@@ -73,28 +85,29 @@ int main() {
     Student knob("Jake", "Knabner");
     knob.addCourse("cs");
     knob.addCourse("eng");
-    std::cout << knob.toString(true) << std::endl;
+    std::cout << knob.toString(true) << std::endl << std::endl;
 
-    // DoubleLinkedList<Student> list = doubleLinkedListStuff(rags, syke1, syke2, surnameLacking, knob);
-    // LinkedList<Student> list = linkedListStuff(rags, syke1, syke2, surnameLacking, knob);
-    Queue<Student> list = queueStuff(rags, syke1, syke2, surnameLacking, knob);
+    // DoubleLinkedList<Student> collection = doubleLinkedListStuff(rags, syke1, syke2, surnameLacking, knob);
+    // LinkedList<Student> collection = linkedListStuff(rags, syke1, syke2, surnameLacking, knob);
+    // Queue<Student> collection = queueStuff(rags, syke1, syke2, surnameLacking, knob);
+    Stack<Student> collection = stackStuff(rags, syke1, syke2, surnameLacking, knob);
 
     std::cout << "Is Mason Sykes alive? ";
-    bool alive = list.exists(syke2);
+    bool alive = collection.exists(syke2);
     if(alive)
         std::cout << "Yes" << std::endl;
     else
         std::cout << "No" << std::endl;
 
     std::cout << "Is the character that didn't have a last name until today (Ashley) alive? ";
-    alive = list.exists(surnameLacking);
+    alive = collection.exists(surnameLacking);
     if(alive)
         std::cout << "Yes" << std::endl;
     else
         std::cout << "No" << std::endl;
 
-    // list.~DoubleLinkedList();
-    // if(list.toString() == "")
+    // collection.~DoubleLinkedList();
+    // if(collection.toString() == "")
     //     std::cout << "All values and deleted and memory deallocated successfully!" << std::endl;
     // else
     //     std::cout << "Oh no! Something bad happened! This could be a memory leak....." << std::endl;

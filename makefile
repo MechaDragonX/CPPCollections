@@ -1,7 +1,7 @@
 CC=g++
 # CFLAGS=
 # DEPS =
-OBJS = double_linked_list.o linked_list.o queue.o student.o main.o
+OBJS = double_linked_list.o linked_list.o queue.o stack.o student.o main.o
 
 coll: $(OBJS)
 	$(CC) -o $@ $^
@@ -12,8 +12,11 @@ double_linked_list.o: double_linked_list.cpp i_link.hpp double_linked_list.hpp l
 linked_list.o: linked_list.cpp i_link.hpp linked_list.hpp list_node.hpp student.hpp
 	$(CC) -c linked_list.cpp
 
-queue.o: queue.cpp i_link.hpp queue.hpp list_node.hpp student.hpp
+queue.o: queue.cpp i_link.hpp list_node.hpp queue.hpp student.hpp
 	$(CC) -c queue.cpp
+
+stack.o: stack.cpp i_link.hpp list_node.hpp stack.hpp student.hpp
+	$(CC) -c stack.cpp
 
 student.o: student.cpp student.hpp
 	$(CC) -c student.cpp
