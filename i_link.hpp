@@ -9,7 +9,6 @@ class ILink {
         virtual bool exists(T value) = 0;
         virtual void add(T value) = 0;
         virtual void remove() = 0;
-        // virtual void remove(T value) = 0;
         virtual std::string toString() = 0;
 };
 

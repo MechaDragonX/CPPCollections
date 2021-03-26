@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-// #include "i_link.hpp"
 #include "double_linked_list.hpp"
 #include "linked_list.hpp"
 #include "list_node.hpp"
