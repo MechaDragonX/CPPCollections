@@ -3,6 +3,7 @@
 #include <type_traits>
 #include "i_link.hpp"
 #include "linked_list.hpp"
+#include "list_node.hpp"
 #include "student.hpp"
 
 template <typename T>

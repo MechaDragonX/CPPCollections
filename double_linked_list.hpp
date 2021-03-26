@@ -3,13 +3,7 @@
 
 #include <string>
 #include "i_link.hpp"
-
-template <typename T>
-struct DoubleListNode {
-    T value;
-    DoubleListNode<T>* previous;
-    DoubleListNode<T>* next;
-};
+#include "list_node.hpp"
 
 template <typename T>
 class DoubleLinkedList : public ILink<T> {
@@ -29,8 +23,8 @@ class DoubleLinkedList : public ILink<T> {
         bool exists(T value) override;
         void add(T value) override;
         void remove() override;
-        void remove(T value) override;
-        std::string toString();
+        void remove(T value);
+        std::string toString() override;
 };
 
 #endif

@@ -3,12 +3,7 @@
 
 #include <string>
 #include "i_link.hpp"
-
-template <typename T>
-struct ListNode {
-    T value;
-    ListNode<T>* next;
-};
+#include "list_node.hpp"
 
 template <typename T>
 class LinkedList : public ILink<T> {
@@ -28,7 +23,7 @@ class LinkedList : public ILink<T> {
         bool exists(T value) override;
         void add(T value) override;
         void remove() override;
-        void remove(T value) override;
+        void remove(T value);
         std::string toString() override;
 };
 
