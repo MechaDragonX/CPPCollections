@@ -1,7 +1,10 @@
 #include <iostream>
 #include <string>
+// #include "i_link.hpp"
 #include "double_linked_list.hpp"
 #include "linked_list.hpp"
+#include "list_node.hpp"
+#include "queue.hpp"
 #include "student.hpp"
 
 DoubleLinkedList<Student> doubleLinkedListStuff(Student rags, Student syke1, Student syke2, Student surnameLacking, Student knob) {
@@ -34,6 +37,17 @@ LinkedList<Student> linkedListStuff(Student rags, Student syke1, Student syke2, 
     std::cout << list.toString() << std::endl;
     return list;
 }
+Queue<Student> queueStuff(Student rags, Student syke1, Student syke2, Student surnameLacking, Student knob) {
+    Queue<Student> queue = Queue<Student>(rags);
+    queue.add(syke1);
+    queue.add(syke2);
+    queue.add(surnameLacking);
+    queue.add(knob);
+    std::cout << queue.toString() << std::endl;
+    queue.remove();
+    std::cout << queue.toString() << std::endl;
+    return queue;
+}
 
 int main() {
     Student rags("Raghav", "Vivek");
@@ -62,8 +76,9 @@ int main() {
     knob.addCourse("eng");
     std::cout << knob.toString(true) << std::endl;
 
-    DoubleLinkedList<Student> list = doubleLinkedListStuff(rags, syke1, syke2, surnameLacking, knob);
+    // DoubleLinkedList<Student> list = doubleLinkedListStuff(rags, syke1, syke2, surnameLacking, knob);
     // LinkedList<Student> list = linkedListStuff(rags, syke1, syke2, surnameLacking, knob);
+    Queue<Student> list = queueStuff(rags, syke1, syke2, surnameLacking, knob);
 
     std::cout << "Is Mason Sykes alive? ";
     bool alive = list.exists(syke2);
